@@ -1,7 +1,8 @@
 <?php 
 require_once('config.php');
-if($_SERVER['REQUEST_METHOD']=='GET'){
-	$sql = "SELECT * FROM mahasiswa ORDER BY nama ASC";
+if($_SERVER['REQUEST_METHOD']=='POST'){
+	$search =$_POST['search'];
+	$sql = "SELECT * FROM mahasiswa WHERE nama LIKE '%search%' ORDER BY nama ASC";
 	$res = mysqli_query($koneksi,$sql);
 	$result = array();
 	while ($row = mysqli_fetch_array($res)) {
@@ -10,4 +11,5 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 	echo json_encode(array('value' =>1 ,'result'=>$result));
 	mysqli_close($koneksi);
 }
+
 ?>

@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 			$response["value"] = 1;
 		$response["message"] ="Sukses terdaftar !";
 		echo json_encode($response);
-		}else{
+	}else{
 			$response["value"] = 0;
 		$response["message"] ="oops! coba lagi!";
 		echo json_encode($response);
