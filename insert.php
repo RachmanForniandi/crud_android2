@@ -1,7 +1,7 @@
 <?php 
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	
-	$respon = array();
+	$response = array();
 	//utk mendapatkan data mahasiswa
 	$nrp = $_POST['nrp'];
 	$nama = $_POST['nama'];
@@ -18,11 +18,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	}else{
 		$sql ="INSERT INTO mahasiswa(nrp,nama,jurusan,jenis_kelamin)VALUES('$nrp','$nama','$jurusan','$jenis_kelamin')";
 		if (mysqli_query($koneksi,$sql)) {
-			$response["value"] = 1;
+		$response["value"] = 1;
 		$response["message"] ="Sukses terdaftar !";
 		echo json_encode($response);
 	}else{
-			$response["value"] = 0;
+		$response["value"] = 0;
 		$response["message"] ="oops! coba lagi!";
 		echo json_encode($response);
 		}
